@@ -1,0 +1,267 @@
+import type { MenuItem, Category, ComboOffer } from '../types';
+
+const u = (id: string) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=600&q=80&ixlib=rb-4.1.0`;
+
+export const MENU_ITEMS: MenuItem[] = [
+  // ── Starters ────────────────────────────────────────────────────────────
+  {
+    id: 'starter-001',
+    name: 'Medu Vada',
+    description: 'Crispy golden lentil fritters with a fluffy interior, served with sambar and coconut chutney.',
+    price: 12000,
+    category: 'Starters',
+    imageUrl: u('1756757077703-26dc3ba7e853'),
+    allergens: ['Gluten'],
+    isVegan: true,
+    isPopular: true,
+  },
+  {
+    id: 'starter-002',
+    name: 'Paneer Tikka',
+    description: 'Tandoor-grilled cottage cheese marinated in spiced yoghurt with capsicum and onion.',
+    price: 22000,
+    category: 'Starters',
+    imageUrl: u('1666001120694-3ebe8fd207be'),
+    allergens: ['Dairy'],
+    isVegetarian: true,
+    isPopular: true,
+  },
+  {
+    id: 'starter-003',
+    name: 'Sambar Vada',
+    description: 'Soft vadas dunked in piping hot, tamarind-laced sambar — a South Indian classic.',
+    price: 15000,
+    category: 'Starters',
+    imageUrl: u('1692616726788-08f0359d9c27'),
+    allergens: ['Gluten'],
+    isVegetarian: true,
+    discountPercent: 15,
+    offerLabel: 'Daily Special',
+  },
+  {
+    id: 'starter-004',
+    name: 'Chicken 65',
+    description: 'Deep-fried chicken tossed with curry leaves, green chillies and a bold spice blend.',
+    price: 28000,
+    category: 'Starters',
+    imageUrl: u('1603496987351-f84a3ba5ec85'),
+    allergens: ['Eggs'],
+    isPopular: true,
+  },
+
+  // ── Mains ────────────────────────────────────────────────────────────────
+  {
+    id: 'main-001',
+    name: 'Masala Dosa',
+    description: 'Crispy fermented rice crepe filled with spiced potato masala, served with sambar and two chutneys.',
+    price: 18000,
+    category: 'Mains',
+    imageUrl: u('1668236543090-82eba5ee5976'),
+    allergens: [],
+    isVegan: true,
+    isPopular: true,
+  },
+  {
+    id: 'main-002',
+    name: 'Chettinad Chicken Curry',
+    description: 'Bold, aromatic curry from Tamil Nadu made with freshly ground kalpasi and marathi mokku spices.',
+    price: 38000,
+    category: 'Mains',
+    imageUrl: u('1596797038530-2c107229654b'),
+    allergens: [],
+    isPopular: true,
+  },
+  {
+    id: 'main-003',
+    name: 'Kerala Fish Curry',
+    description: 'Tangy coconut milk curry with fresh kingfish, raw mango and kodampuli — cooked in a clay pot.',
+    price: 42000,
+    category: 'Mains',
+    imageUrl: u('1620894580123-466ad3a0ca06'),
+    allergens: ['Fish'],
+    isPopular: true,
+  },
+  {
+    id: 'main-004',
+    name: 'Vegetable Biryani',
+    description: 'Fragrant basmati rice layered with seasonal vegetables, saffron, fried onions and fresh mint.',
+    price: 28000,
+    category: 'Mains',
+    imageUrl: u('1631515243349-e0cb75fb8d3a'),
+    allergens: ['Dairy'],
+    isVegetarian: true,
+    discountPercent: 10,
+    offerLabel: "Chef's Pick",
+  },
+  {
+    id: 'main-005',
+    name: 'Mutton Rogan Josh',
+    description: 'Slow-braised Kashmiri lamb in a rich sauce of dried Kashmiri chillies, fennel and whole spices.',
+    price: 45000,
+    category: 'Mains',
+    imageUrl: u('1606843046080-45bf7a23c39f'),
+    allergens: [],
+  },
+
+  // ── Sides ─────────────────────────────────────────────────────────────────
+  {
+    id: 'side-001',
+    name: 'Sambar',
+    description: 'Tangy tamarind and toor dal lentil stew slow-cooked with drumstick, pearl onions and tomatoes.',
+    price: 8000,
+    category: 'Sides',
+    imageUrl: u('1632104667384-06f58cb7ad44'),
+    allergens: [],
+    isVegan: true,
+    isPopular: true,
+    discountPercent: 15,
+    offerLabel: 'Happy Hour',
+  },
+  {
+    id: 'side-002',
+    name: 'Coconut Chutney',
+    description: 'Freshly ground coconut with roasted chana dal, green chillies and a mustard-curry leaf temper.',
+    price: 6000,
+    category: 'Sides',
+    imageUrl: u('1743615467363-250466982515'),
+    allergens: [],
+    isVegan: true,
+  },
+  {
+    id: 'side-003',
+    name: 'Appam',
+    description: 'Lacy fermented rice pancakes with crispy edges and a soft pillowy centre — perfect with any curry.',
+    price: 9000,
+    category: 'Sides',
+    imageUrl: u('1646398123647-695431536f7c'),
+    allergens: [],
+    isVegan: true,
+    discountPercent: 20,
+    offerLabel: 'Happy Hour',
+  },
+
+  // ── Desserts ──────────────────────────────────────────────────────────────
+  {
+    id: 'dessert-001',
+    name: 'Payasam',
+    description: 'Creamy vermicelli pudding simmered in full-fat milk with cardamom, saffron and toasted cashews.',
+    price: 15000,
+    category: 'Desserts',
+    imageUrl: u('1777613112969-d7511ddfbe15'),
+    allergens: ['Dairy', 'Nuts'],
+    isVegetarian: true,
+    isPopular: true,
+  },
+  {
+    id: 'dessert-002',
+    name: 'Mysore Pak',
+    description: 'Melt-in-the-mouth chickpea fudge from Mysore, made with generous amounts of ghee and sugar.',
+    price: 12000,
+    category: 'Desserts',
+    imageUrl: u('1758910536889-43ce7b3199fd'),
+    allergens: ['Dairy'],
+    isVegetarian: true,
+  },
+  {
+    id: 'dessert-003',
+    name: 'Tender Coconut Ice Cream',
+    description: 'House-churned ice cream with fresh tender coconut pieces, flavoured with coconut water and cardamom.',
+    price: 18000,
+    category: 'Desserts',
+    imageUrl: u('1561230101-2c841778f9ae'),
+    allergens: [],
+    isVegan: true,
+    discountPercent: 25,
+    offerLabel: 'Sweet Deal',
+  },
+
+  // ── Drinks ────────────────────────────────────────────────────────────────
+  {
+    id: 'drink-001',
+    name: 'Filter Coffee',
+    description: 'Traditional South Indian decoction coffee served frothy in a stainless steel tumbler and davara.',
+    price: 8000,
+    category: 'Drinks',
+    imageUrl: u('1758387941825-a6ecaec9c14d'),
+    allergens: ['Dairy'],
+    isVegetarian: true,
+    isPopular: true,
+  },
+  {
+    id: 'drink-002',
+    name: 'Neer Mor',
+    description: 'Chilled spiced buttermilk with ginger, green chilli, curry leaves and a pinch of asafoetida.',
+    price: 6000,
+    category: 'Drinks',
+    imageUrl: u('1691175595365-211c15192433'),
+    allergens: ['Dairy'],
+    isVegetarian: true,
+    isPopular: true,
+    discountPercent: 15,
+    offerLabel: 'Happy Hour',
+  },
+  {
+    id: 'drink-003',
+    name: 'Fresh Lime Soda',
+    description: 'Hand-squeezed lime with chilled soda, black salt and a choice of sweet, salted or masala.',
+    price: 7000,
+    category: 'Drinks',
+    imageUrl: u('1634976245495-443328555f70'),
+    allergens: [],
+    isVegan: true,
+    discountPercent: 20,
+    offerLabel: 'Happy Hour',
+  },
+];
+
+export const CATEGORIES: Category[] = [
+  'Starters',
+  'Mains',
+  'Sides',
+  'Desserts',
+  'Drinks',
+];
+
+// ── Combo Offers ──────────────────────────────────────────────────────────────
+// originalPrice = sum of individual item prices (in paise)
+// comboPrice    = bundled deal price (in paise)
+
+export const COMBO_OFFERS: ComboOffer[] = [
+  {
+    id: 'combo-001',
+    name: 'South Indian Thali',
+    tagline: 'A complete traditional meal',
+    itemIds: ['starter-001', 'main-001', 'side-001', 'drink-001'],
+    originalPrice: 46000,  // 12000 + 18000 + 8000 + 8000
+    comboPrice: 34900,
+    accentColor: '#16a34a',
+  },
+  {
+    id: 'combo-002',
+    name: 'Veg Delight',
+    tagline: 'Fresh & plant-forward',
+    itemIds: ['starter-002', 'main-004', 'side-002', 'drink-003'],
+    originalPrice: 63000,  // 22000 + 28000 + 6000 + 7000
+    comboPrice: 49900,
+    accentColor: '#059669',
+  },
+  {
+    id: 'combo-003',
+    name: 'Tiffin Express',
+    tagline: 'Quick, light & satisfying',
+    itemIds: ['starter-003', 'side-001', 'drink-002'],
+    originalPrice: 29000,  // 15000 + 8000 + 6000
+    comboPrice: 22900,
+    accentColor: '#0284c7',
+  },
+  {
+    id: 'combo-004',
+    name: 'Non-Veg Feast',
+    tagline: 'Go all out — you deserve it',
+    itemIds: ['starter-004', 'main-002', 'side-003', 'dessert-001'],
+    originalPrice: 100000,  // 28000 + 38000 + 9000 + 15000 = 90000, rounded up
+    comboPrice: 79900,
+    accentColor: '#dc2626',
+  },
+];

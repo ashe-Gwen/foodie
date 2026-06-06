@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Zomato Palette ──────────────────────── */
+  --color-bg:        #FFFFFF;
+  --color-surface:   #F8F8F8;
+  --color-raised:    #EDEDED;
+  --color-green:     #E23744;
+  --color-green-mid: #CB202D;
+  --color-red:       #CB202D;
+  --color-amber:     #FF7F2A;
+  --color-text:      #1C1C1C;
+  --color-muted:     #696969;
+
+  /* ── Typography ──────────────────────────── */
+  --font-heading: 'Inter', sans-serif;
+  --font-sans:    'Inter', sans-serif;
+}
+
+/* ─── Reset ──────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Scrollbar ──────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-green) 30%, transparent);
+  border-radius: 2px;
+}
+
+/* ─── Card entrance ──────────────────────────── */
+@keyframes card-reveal {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.card-reveal { animation: card-reveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* ─── Modal ──────────────────────────────────── */
+@keyframes modal-backdrop-in { from { opacity: 0; } to { opacity: 1; } }
+
+@keyframes modal-panel-in {
+  from { opacity: 0; transform: translateY(28px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.modal-backdrop-in { animation: modal-backdrop-in 0.3s ease both; }
+.modal-panel-in    { animation: modal-panel-in 0.42s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* ─── Header entrance ────────────────────────── */
+@keyframes header-in {
+  from { opacity: 0; transform: translateY(-14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.header-in { animation: header-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* ─── Stagger content ────────────────────────── */
+@keyframes content-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.content-in { animation: content-in 0.42s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* ─── Badge pulse ────────────────────────────── */
+@keyframes badge-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.55; }
+}
+.badge-pulse { animation: badge-pulse 2.6s ease-in-out infinite; }
+
+/* ─── Offer card entrance ────────────────────── */
+@keyframes offer-in {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.offer-in { animation: offer-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* ─── Image skeleton shimmer (dark) ─────────── */
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to   { background-position:  200% center; }
+}
+.img-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-raised)  25%,
+    #DADADA              50%,
+    var(--color-raised)  75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* ─── Gold accent divider ────────────────────── */
+.accent-line {
+  display: block;
+  height: 1px;
+  width: 2.5rem;
+  background: var(--color-green);
+  border-radius: 1px;
+  opacity: 0.6;
+}
+
+/* ─── Discount badge pop ─────────────────────── */
+@keyframes badge-pop {
+  0%   { transform: scale(0.7); opacity: 0; }
+  60%  { transform: scale(1.1); }
+  100% { transform: scale(1);   opacity: 1; }
+}
+.badge-pop { animation: badge-pop 0.4s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* ─── Cart drawer slide-in ───────────────────── */
+@keyframes cart-slide-in {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+.cart-drawer { animation: cart-slide-in 0.3s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* ─── Gold text shimmer ──────────────────────── */
+@keyframes gold-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+.gold-text {
+  background: linear-gradient(90deg, #E23744 0%, #FF7F8A 42%, #E23744 58%, #CB202D 100%);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gold-shimmer 5s linear infinite;
+}
