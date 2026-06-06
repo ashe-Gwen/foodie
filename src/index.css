@@ -13,8 +13,8 @@
   --color-muted:     #696969;
 
   /* ── Typography ──────────────────────────── */
-  --font-heading: 'Inter', sans-serif;
-  --font-sans:    'Inter', sans-serif;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-sans:    'DM Sans', system-ui, sans-serif;
 }
 
 /* ─── Reset ──────────────────────────────────── */
